@@ -19,4 +19,22 @@ def hello(name: str) -> str:
     return f"Hello {name}!"
 
 
-__all__ = ["hello"]
+def bye(name: str) -> str:
+    """Just an greetings example.
+
+    Args:
+        name (str): Name to greet.
+
+    Returns:
+        str: greeting message
+
+    Examples:
+        .. code:: python
+
+            >>> bye("Roman")
+            'Goodbye Roman!'
+    """
+    return f"Goodbye {name}!"
+
+
+__all__ = ["hello", "bye"]
