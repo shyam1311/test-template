@@ -6,7 +6,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "test-template"
-version = "0.1.0"
+version = "0.2.0"
 description = "Awesome `test-template` is a Python cli/package created with https://github.com/TezRomacH/python-package-template"
 readme = "README.md"
 authors = [
