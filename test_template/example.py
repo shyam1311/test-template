@@ -31,7 +31,7 @@ def bye(name: str) -> str:
     Examples:
         .. code:: python
 
-            >>> hello("Roman")
+            >>> bye("Roman")
             'Goodbye Roman!'
     """
     return f"Goodbye {name}!"
