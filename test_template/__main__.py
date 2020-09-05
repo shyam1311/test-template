@@ -8,7 +8,7 @@ import typer
 from rich.console import Console
 
 from test_template import __version__
-from test_template.example import hello
+from test_template.example import bye, hello
 
 
 class Color(str, Enum):
@@ -18,6 +18,11 @@ class Color(str, Enum):
     magenta = "magenta"
     yellow = "yellow"
     green = "green"
+
+
+class Greeting(str, Enum):
+    hello = "hello"
+    bye = "bye"
 
 
 app = typer.Typer(
@@ -40,6 +45,9 @@ def version_callback(value: bool):
 @app.command(name="")
 def main(
     name: str = typer.Option(..., help="Name of person to greet."),
+    greeting: str = typer.Option(
+        ..., case_sensitive=False, help="Type of Greeting"
+    ),
     color: Optional[Color] = typer.Option(
         None,
         "-c",
@@ -61,6 +69,8 @@ def main(
     if color is None:
         # If no color specified use random value from `Color` class
         color = random.choice(list(Color.__members__.values()))
-
-    greeting: str = hello(name)
+    if greeting == "hello":
+        greeting: str = hello(name)
+    else:
+        greeting: str = bye(name)
     console.print(f"[bold {color}]{greeting}[/]")
